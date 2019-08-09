@@ -37,6 +37,7 @@
 // 10 : Outside temperature
 // 11 : Inside temperature
 // 12 : shum : description: represents the target humidity
+// 13 : cmpfreq : description: frequency of the compressor
 // 20 : SetPoint
 
 
@@ -619,6 +620,10 @@ void CDaikin::GetSensorInfo()
 		{
 			SendTempSensor(10, -1, static_cast<float>(atof(results2[1].c_str())), "Outside Temperature");
 
+		}
+		else if (results2[0] == "cmpfreq")
+		{
+			SendFanSensor(13, 255, static_cast<int>(atoi(results2[1].c_str()), "Compressor Speed");
 		}
 	}
 	if (htemp != -1)
